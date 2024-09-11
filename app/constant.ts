@@ -231,7 +231,7 @@ You are ChatGPT, a large language model trained by {{ServiceProvider}}.
 Knowledge cutoff: {{cutoff}}
 Current model: {{model}}
 Current time: {{time}}
-Latex inline: \\(x^2\\) 
+Latex inline: \\(x^2\\)
 Latex block: $$e=mc^2$$
 `;
 
@@ -348,8 +348,60 @@ const iflytekModels = [
   "4.0Ultra",
 ];
 
+const awsBedrockModels = [
+  {
+    name: "claude-3.5-sonnet",
+    available: true,
+    modelId: "anthropic.claude-3-5-sonnet-20240620-v1:0",
+    anthropic_version: "bedrock-2023-05-31",
+    provider: {
+      id: "aws",
+      providerName: "AWS",
+      providerType: "aws",
+    },
+    displayName: "Claude3.5 sonnet",
+  },
+  {
+    name: "claude-3-sonnet",
+    available: true,
+    modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
+    anthropic_version: "bedrock-2023-05-31",
+    provider: {
+      id: "aws",
+      providerName: "AWS",
+      providerType: "aws",
+    },
+    displayName: "Claude3 sonnet",
+  },
+  {
+    name: "claude-3-haiku",
+    available: true,
+    modelId: "anthropic.claude-3-haiku-20240307-v1:0",
+    anthropic_version: "bedrock-2023-05-31",
+    provider: {
+      id: "aws",
+      providerName: "AWS",
+      providerType: "aws",
+    },
+    displayName: "Claude3 haiku",
+  },
+  {
+    name: "claude-3-opus",
+    available: true,
+    modelId: "anthropic.claude-3-opus-20240229-v1:0",
+    anthropic_version: "bedrock-2023-05-31",
+    provider: {
+      id: "aws",
+      providerName: "AWS",
+      providerType: "aws",
+    },
+    displayName: "Claude3 opus",
+  },
+];
+
 let seq = 1000; // 内置的模型序号生成器从1000开始
 export const DEFAULT_MODELS = [
+  ...awsBedrockModels,
   ...openaiModels.map((name) => ({
     name,
     available: true,
