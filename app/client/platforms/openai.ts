@@ -396,7 +396,7 @@ export class ChatGPTApi implements LLMApi {
 
   async models(): Promise<LLMModel[]> {
     if (this.disableListModels) {
-      return DEFAULT_MODELS.slice();
+      return DEFAULT_MODELS.slice() as LLMModel[];
     }
 
     const res = await fetch(this.path(OpenaiPath.ListModelPath), {
